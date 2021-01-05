@@ -8,7 +8,7 @@
 	pr_type 		int NOT NULL,
 	afsc 			char(7),
 	org_id 			int,
-	job_desc0		text,
+	job_desc		text,
 	period_start 	date,
 	period_end 		date,
 	sup_days 		int,
