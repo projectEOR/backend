@@ -82,4 +82,10 @@ VALUES (0, 'This is the greatest and best bullet in the world. Tribute.'),
 (0, 'This is not the greatest bullet in the world, no. This is just a tribute');
 
 	
-		  
+CREATE TABLE IF NOT EXISTS pr_types (
+	id		PRIMARY KEY,
+	pr_type 	char(16)
+);
+
+ INSERT INTO pr_types (id, pr_type)
+ VALUES (0,'OPR'),(1,'EPR');
