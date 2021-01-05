@@ -9,8 +9,8 @@ router.use(function timeLog(req, res, next) {
 })
 
 // respond with "hello world" when a GET request is made to the homepage
-router.get('/reports', function (req, res) {
-    res.send('hello world')
+router.get('/', function (req, res) {
+    res.send('hello reports')
 })
 
 module.exports = router
