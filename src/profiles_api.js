@@ -22,6 +22,8 @@ router.get('/orgs', db.getOrgs);
 
 router.get('/ranks', db.getRanks);
 
+router.post('/ranks', db.postRank);
+
 
 
 module.exports = router;

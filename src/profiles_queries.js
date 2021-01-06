@@ -1,5 +1,45 @@
 const pool = require('./pool');
 
+const getOrgs = (req, res) => {
+
+    pool.query("SELECT * FROM orgs;", (err, result) => {
+        if (err) {
+            throw err;
+        }
+        res.status(200).send(result.rows);
+    })
+}
+
+const getRanks = (req, res) => {
+    pool.query("SELECT * FROM ranks", (err, result) => {
+        if (err) {
+            throw err;
+        }
+        res.status(200).send(result.rows);
+    })
+}
+
+const postRank = (req, res) => {
+    const newRank = req.body;
+    pool.query(`
+        INSERT INTO ranks (name, symbol)
+        VALUES ($1, $2)
+        RETURNING id;
+        `, [newRank.name, newRank.symbol], (err, result) => {
+            if (err) {
+                throw err;
+            } 
+            
+            const lastId = result.rows[0].id;
+            if (lastId) {
+                res.status(201).send({ newRankId: lastId });
+            } else {
+                res.status(500).send('Server error. Could not add rank');
+            }
+        }
+    )
+}
+
 const getUser = (req,res) => {
     let userId = req.params.userId
     pool.query("SELECT * FROM users WHERE id=$1;", [userId], (err, result) => {
@@ -29,25 +69,6 @@ const getUsers = (req, res) => {
             }
             res.status(200).send(result.rows);
         })
-}
-
-const getOrgs = (req, res) => {
-
-    pool.query("SELECT * FROM orgs;", (err, result) => {
-        if (err) {
-            throw err;
-        }
-        res.status(200).send(result.rows);
-    })
-}
-
-const getRanks = (req, res) => {
-    pool.query("SELECT * FROM ranks", (err, result) => {
-        if (err) {
-            throw err;
-        }
-        res.status(200).send(result.rows);
-    })
 }
 
 const addUser = (req, res) => {
@@ -129,9 +150,10 @@ const deleteUser = (req, res) => {
 
 module.exports = {
     getOrgs,
+    getRanks,
+    postRank,
     getUser,
     getUsers,
-    getRanks,
     addUser,
     updateUser,
     deleteUser
