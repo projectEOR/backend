@@ -8,7 +8,13 @@ router.use(function timeLog(req, res, next) {
     next()
 })
 
+router.get('/', db.getUsers);
 
+router.get('/:userId', db.getUser);
+
+router.get('/orgs', db.getOrgs);
+
+router.get('/ranks', db.getRanks);
 
 module.exports = router;
 
