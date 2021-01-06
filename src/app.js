@@ -17,4 +17,7 @@ module.exports = app;
 var overview = require('./overview_api')
 app.use('/overview', overview)
 
+const profiles = require('./profiles_api');
+app.use('/profiles', profiles);
+
 
