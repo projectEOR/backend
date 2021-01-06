@@ -10,11 +10,13 @@ router.use(function timeLog(req, res, next) {
 
 router.get('/', db.getUsers);
 
-router.get('/:userId', db.getUser);
+router.get('/user/:userId', db.getUser);
 
 router.get('/orgs', db.getOrgs);
 
 router.get('/ranks', db.getRanks);
+
+router.put('/user/:userId', db.updateUser);
 
 module.exports = router;
 

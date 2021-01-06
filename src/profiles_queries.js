@@ -14,7 +14,7 @@ const getUser = (req,res) => {
 const getUsers = (req, res) => {
     pool.query(`
         SELECT 
-            username,
+            email,
             last_name,
             first_name,
             rank_id,
@@ -40,16 +40,6 @@ const getOrgs = (req, res) => {
     })
 }
 
-const getSupervisors = (req,res) => {
-    let org_id = req.query.org_id
-    pool.query("SELECT * FROM users WHERE org_id=$1;", [org_id], (err, result) => {
-        if(err){
-            throw err;
-        }
-        res.status(200).send(result.rows);
-    })
-}
-
 const getRanks = (req, res) => {
     pool.query("SELECT * FROM ranks", (err, result) => {
         if (err) {
@@ -59,7 +49,32 @@ const getRanks = (req, res) => {
     })
 }
 
+const updateUser = (req, res) => {
+    const userId = req.params.userId;
+    const updatesArray = Object.entries(req.body);
+    pool.query(`UPDATE users SET ${updatesArray[0][0]}=$1 WHERE id=$2;`, [updatesArray[0][1], userId],
+        (err) => {
+            if (err) {
+                throw err;
+            }
 
+            pool.query(`SELECT * FROM users WHERE id=$1;`, [userId],
+                (err, result) => {
+                    if (err) {
+                        throw err;
+                    }
+
+                    const updatedUser = result.rows[0];
+                    if(updatedUser) {
+                        res.status(201).send(updatedUser);
+                    } else {
+                        res.status(500).send('Server error. Could not update user');
+                    }
+                }
+            )
+        }
+    )
+}
 
 // const postUser = (req, res) => {
 //
@@ -69,6 +84,6 @@ module.exports = {
     getOrgs,
     getUser,
     getUsers,
-    getSupervisors,
-    getRanks
+    getRanks,
+    updateUser
 }
