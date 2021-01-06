@@ -20,4 +20,4 @@ app.use('/overview', overview)
 const profiles = require('./profiles_api');
 app.use('/profiles', profiles);
 
-
+module.exports = app;
