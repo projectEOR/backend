@@ -24,6 +24,8 @@ router.get('/ranks', db.getRanks);
 
 router.post('/ranks', db.postRank);
 
+router.delete('/rank/:rankId', db.deleteRank);
+
 
 
 module.exports = router;

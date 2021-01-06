@@ -40,6 +40,17 @@ const postRank = (req, res) => {
     )
 }
 
+const deleteRank = (req, res) => {
+    const rankId = req.params.rankId;
+    pool.query('DELETE FROM ranks WHERE id=$1', [rankId], (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+        res.status(204).send('Successfully deleted rank.');
+    })
+}
+
 const getUser = (req,res) => {
     let userId = req.params.userId
     pool.query("SELECT * FROM users WHERE id=$1;", [userId], (err, result) => {
@@ -152,6 +163,7 @@ module.exports = {
     getOrgs,
     getRanks,
     postRank,
+    deleteRank,
     getUser,
     getUsers,
     addUser,
