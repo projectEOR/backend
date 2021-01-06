@@ -1,9 +1,9 @@
-const pool = require('./pool')
+const pool = require(pool);
 
-const getOverview = (req,res) => {
+const getOverview = (req, res) => {
     let org_id = req.params.org_id
     pool.query("SELECT * FROM users WHERE org_id=$1;", [org_id], (err, result) => {
-        if(err){
+        if (err) {
             throw err;
         }
         res.status(200).send(result.rows);
@@ -11,10 +11,10 @@ const getOverview = (req,res) => {
 
 }
 
-const getOrgChildren = (req,res) => {
+const getOrgChildren = (req, res) => {
     let org_id = req.params.org_id
     pool.query("SELECT * FROM orgs WHERE parentid=$1;", [org_id], (err, result) => {
-        if(err){
+        if (err) {
             throw err;
         }
         res.status(200).send(result.rows);
