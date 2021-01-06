@@ -1,8 +1,6 @@
 const cors = require('cors')
-
 const express = require('express')
 const app = express()
-
 app.use(cors())
 
 //APIs
@@ -12,8 +10,6 @@ app.use('/reports', reports)
 var bullets = require('./bullets_api')
 app.use('/bullets', bullets)
 
-module.exports = app;
-
 var overview = require('./overview_api')
 app.use('/overview', overview)
 
@@ -21,3 +17,4 @@ const profiles = require('./profiles_api');
 app.use('/profiles', profiles);
 
 module.exports = app;
+

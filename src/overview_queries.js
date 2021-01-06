@@ -1,11 +1,4 @@
-const Pool = require('pg').Pool
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'eor',
-    password: 'eor',
-    port: 8000
-});
+const pool = require('./pool')
 
 const getOverview = (req,res) => {
     let org_id = req.params.org_id
