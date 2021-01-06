@@ -1,6 +1,6 @@
 var express = require("express");
+
 var router = express.Router();
-const db = require("./tracker_queries");
 
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
@@ -8,9 +8,9 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-router.get("/", db.getTracker);
-router.get("/org/:org_name_id", db.getTrackerByOrg);
-router.get("/rater/:rater_id", db.getTrackerByRater);
-router.get("/ratee/:ratee_id", db.getTrackerByRatee);
+// respond with "hello world" when a GET request is made to the homepage
+router.get("/", function (req, res) {
+  res.send("hello bullets");
+});
 
 module.exports = router;
