@@ -13,7 +13,8 @@ const getUser = (req,res) => {
 
 const getUsers = (req, res) => {
     pool.query(`
-        SELECT 
+        SELECT
+            id, 
             email,
             last_name,
             first_name,
@@ -49,6 +50,45 @@ const getRanks = (req, res) => {
     })
 }
 
+const addUser = (req, res) => {
+    const newUser = req.body;
+    pool.query(`
+        INSERT INTO users (
+            email,
+            last_name,
+            first_name,
+            rank_id,
+            org_id,
+            rater_id,
+            additional_rater_id,
+            closeout
+        )
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        RETURNING id;
+        `, [
+            newUser.email,
+            newUser.last_name,
+            newUser.first_name,
+            newUser.rank_id,
+            newUser.org_id,
+            newUser.rater_id,
+            newUser.additional_rater_id,
+            newUser.closeout
+        ], (err, result) => {
+            if (err) {
+                throw err;
+            }
+
+            const lastId = result.rows[0].id;
+            if (lastId) {
+                res.status(200).send({ newUserId: lastId });
+            } else {
+                res.status(500).send('Server error. Could not add user');
+            }
+        }
+    )
+}
+
 const updateUser = (req, res) => {
     const userId = req.params.userId;
     const updatesArray = Object.entries(req.body);
@@ -76,14 +116,23 @@ const updateUser = (req, res) => {
     )
 }
 
-// const postUser = (req, res) => {
-//
-//}
+const deleteUser = (req, res) => {
+    const userId = req.params.userId;
+    pool.query('DELETE FROM users WHERE id=$1', [userId], (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+        res.status(204).send('Successfully deleted user.');
+    })
+}
 
 module.exports = {
     getOrgs,
     getUser,
     getUsers,
     getRanks,
-    updateUser
+    addUser,
+    updateUser,
+    deleteUser
 }

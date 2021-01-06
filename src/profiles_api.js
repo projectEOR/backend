@@ -12,11 +12,17 @@ router.get('/', db.getUsers);
 
 router.get('/user/:userId', db.getUser);
 
+router.put('/user/:userId', db.updateUser);
+
+router.post('/', db.addUser);
+
+router.delete('/user/:userId', db.deleteUser);
+
 router.get('/orgs', db.getOrgs);
 
 router.get('/ranks', db.getRanks);
 
-router.put('/user/:userId', db.updateUser);
+
 
 module.exports = router;
 
