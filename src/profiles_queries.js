@@ -57,7 +57,7 @@ const getUser = (req,res) => {
         if(err){
             throw err;
         }
-        res.status(200).send(result.rows);
+        res.status(200).send(result.rows[0]);
     })
 
 }
@@ -113,7 +113,7 @@ const addUser = (req, res) => {
 
             const lastId = result.rows[0].id;
             if (lastId) {
-                res.status(200).send({ newUserId: lastId });
+                res.status(201).send({ newUserId: lastId });
             } else {
                 res.status(500).send('Server error. Could not add user');
             }
