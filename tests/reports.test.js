@@ -16,7 +16,7 @@ describe("Test the reports path", () => {
             .get("/reports/")
             .then(response => {
                 expect(response.statusCode).toBe(200);
-                expect(response.text).toBe("hello reports");
+                expect(response.text).toBe("");
                 done();
 
             });
