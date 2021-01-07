@@ -1,14 +1,8 @@
 const request = require("supertest");
 const app = require("../src/app");
-const bodyParser = require("body-parser");
 const { test, expect } = require("@jest/globals");
 const expectExport = require("expect");
-app.use(bodyParser.json());
-app.use(
-    bodyParser.urlencoded({
-        extended: true,
-    })
-);
+
 
 describe("Test the overview path", () => {
     test("It gets all members of an org", async () => {
