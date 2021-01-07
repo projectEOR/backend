@@ -10,9 +10,6 @@ app.use(
     })
 );
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-
 //APIs
 var reports = require('./reports_api')
 app.use('/reports', reports)
