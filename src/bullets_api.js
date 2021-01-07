@@ -1,16 +1,26 @@
 var express = require('express')
-
 var router = express.Router()
+const queries = require('./bullets_queries')
 
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
-    console.log('Time: ', Date.now())
+    //console.log('Time: ', Date.now())
     next()
 })
 
-// respond with "hello world" when a GET request is made to the homepage
-router.get('/', function (req, res) {
-    res.send('hello bullets')
-})
+//get ALL Bullets
+router.get('/', queries.getBullets)
+
+//get Specified Bullet
+router.get('/:bullet_id', queries.getBullet)
+
+//Create a new Bullet
+router.post('/', queries.createBullet)
+
+//Update a bullet
+router.put('/:bullet_id', queries.updateBullet)
+
+//Delete a bullet
+router.delete('/:bullet_id', queries.deleteBullet)
 
 module.exports = router
