@@ -1,4 +1,4 @@
-/////////Start and share pool
+///////Start and share pool
 const Pool = require("pg").Pool;
 const pool = new Pool({
   user: "postgres",
@@ -7,14 +7,5 @@ const pool = new Pool({
   password: "eor",
   port: 8000,
 });
-
-// const Pool = require("pg").Pool;
-// const pool = new Pool({
-//   user: "bigbootyjudy",
-//   host: "localhost",
-//   database: "capstone_db",
-//   password: "",
-//   port: 5432,
-// });
 
 module.exports = pool;
