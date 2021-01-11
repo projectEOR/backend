@@ -42,19 +42,7 @@ const updateReport = (req, res) => {
     let report_id = req.params.report_id;
     let keys = Object.keys(req.body).toString();
     let values = Object.values(req.body);
-    // values = values.map(e => {
-    //     if(Number.isFinite(e)){
-    //         return e;
-    //     }
-    //     if(Array.isArray(e)){
-    //         return `'{${e.toString()}}'`
-    //     }
-    //     else {
-    //         return `'${e}'`;
-    //     }
-    // }).toString();
     values = values.concat(report_id);
-    console.log(values.length);
     pool.query("UPDATE reports SET (user_id,pr_type,afsc,org_id,job_desc,period_start,period_end,sup_days,non_rated_days,last_feedback,rater_id,addl_rater_id,reviewer_id,func_id,remarks,referral_report,pfactors) = ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17) WHERE id = $18 RETURNING *;", values , (err, result) => {
         if (err) {
             throw err;
