@@ -15,11 +15,15 @@ insert into reports (user_id, pr_type, afsc, org_id, job_desc, period_start, per
 
 Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', '{1,1,1,1,1,1,1}');
 
-INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id,org_name_id) VALUES (3, '03/31/2021',1,'03/10/2021', '03/17/2021','03/24/2021', 'rater',2,1,2);
-INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, org_name_id) VALUES (2, '01/31/2021',4, '01/10/2021', '01/17/2021','01/24/2021', 'A-rater',5,4,2);
-INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id,org_name_id) VALUES (5, '03/31/2021',2, '03/10/2021', '03/17/2021','03/24/2021', 'rater', 3,2,2);
-INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, org_name_id) VALUES (4, '01/31/2021',3, '01/10/2021', '01/17/2021','01/24/2021', 'A-rater',4,3,2);
-
+INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, org_name_id) VALUES (1, '01/31/2021',4, '01/10/2021', '01/17/2021','01/24/2021', 'A-rater',1,1,2);
+INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, org_name_id) VALUES (2, '01/31/2021',4, '01/10/2021', '01/17/2021','01/24/2021', 'A-rater',2,1,2);
+INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id,org_name_id) VALUES (3, '03/31/2021',4,'03/10/2021', '03/17/2021','03/24/2021', 'rater',3,1,2);
+INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, org_name_id) VALUES (4, '01/31/2021',3, '01/10/2021', '01/17/2021','01/24/2021', 'A-rater',1,1,2);
+INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id,org_name_id) VALUES (5, '03/31/2021',2, '03/10/2021', '03/17/2021','03/24/2021', 'rater', 5,4,2);
+INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, org_name_id) VALUES (6, '01/31/2021',3, '01/10/2021', '01/17/2021','01/24/2021', 'A-rater',2,1,2);
+INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id,org_name_id) VALUES (7, '03/31/2021',2, '03/10/2021', '03/17/2021','03/24/2021', 'rater', 4,3,2);
+INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, org_name_id) VALUES (8, '01/31/2021',3, '01/10/2021', '01/17/2021','01/24/2021', 'A-rater',3,2,2);
+INSERT INTO Tracker(report_id, closeout, action_id, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id,org_name_id) VALUES (9, '03/31/2021',2, '03/10/2021', '03/17/2021','03/24/2021', 'rater', 2,1,2);
 
 
 insert into bullets (user_id, report_id, content, support, editorial_notes) values (5, null, 'Vestibulum rutrum rutrum neque.', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
