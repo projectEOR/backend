@@ -22,6 +22,7 @@ describe("Test the '/reports/?user_id=1' path", () => {
             });
     });
 
+
     test("It should respond to the POST method", done => {
         let req = {pr_type: 0}
         request(app)

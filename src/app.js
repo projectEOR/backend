@@ -20,4 +20,10 @@ app.use('/bullets', bullets)
 var overview = require('./overview_api')
 app.use('/overview', overview)
 
+const profiles = require('./profiles_api');
+app.use('/profiles', profiles);
+
+var tracker = require("./tracker_api");
+app.use("/tracker", tracker);
+
 module.exports = app;
