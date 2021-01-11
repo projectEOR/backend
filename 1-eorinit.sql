@@ -50,6 +50,7 @@ CREATE TABLE Actions(
 
 CREATE TABLE Tracker(
   tracker_id SERIAL PRIMARY KEY,
+  report_id INTEGER NOT NULL REFERENCES reports(id),
   closeout date NOT NULL, 
   sq_suspense date NOT NULL,
   gp_suspense date,
@@ -175,9 +176,5 @@ INSERT INTO Actions(status) VALUES ('Draft');
 INSERT INTO Actions(status) VALUES ('Review');
 INSERT INTO Actions(status) VALUES ('Edit');
 INSERT INTO Actions(status) VALUES ('Sign');
-
-
-INSERT INTO Tracker(closeout, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id,org_name_id) VALUES ('03/31/2021', '03/10/2021', '03/17/2021','03/24/2021', 'rater', 3,2,2);
-INSERT INTO Tracker(closeout, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, org_name_id) VALUES ('01/31/2021', '01/10/2021', '01/17/2021','01/24/2021', 'A-rater',4,3,2);
 
 INSERT INTO senior_raters(org_id,rater_id) VALUES (1,1),(2,2),(3,3);

@@ -70,6 +70,7 @@ const updateAction = (request, response) => {
 
 const createTrack = (request, response) => {
   const {
+    report_id,
     closeout,
     sq_suspense,
     gp_suspense,
@@ -82,8 +83,9 @@ const createTrack = (request, response) => {
   } = request.body;
 
   pool.query(
-    "INSERT INTO Tracker (closeout, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, action_id, org_name_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)",
+    "INSERT INTO Tracker (report_id, closeout, sq_suspense, gp_suspense, wg_suspense, member_role, ratee_id, rater_id, action_id, org_name_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)",
     [
+      report_id,
       closeout,
       sq_suspense,
       gp_suspense,
