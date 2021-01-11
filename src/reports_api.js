@@ -1,16 +1,26 @@
-var express = require("express");
-
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
+const queries = require('./reports_queries')
 
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
-  //console.log('Time: ', Date.now())
-  next();
-});
+    //console.log('Time: ', Date.now())
+    next()
+})
 
-// respond with "hello world" when a GET request is made to the homepage
-router.get("/", function (req, res) {
-  res.send("hello reports");
-});
+//get ALL Reports
+router.get('/', queries.getReports)
 
-module.exports = router;
+//get Specified Report
+router.get('/:report_id', queries.getReport)
+
+//Create a new Report
+router.post('/', queries.createReport)
+
+//Update a report
+router.put('/:report_id', queries.updateReport)
+
+//Delete a report
+router.delete('/:report_id', queries.deleteReport)
+
+module.exports = router
