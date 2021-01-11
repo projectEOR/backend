@@ -23,5 +23,7 @@ app.use('/overview', overview)
 const profiles = require('./profiles_api');
 app.use('/profiles', profiles);
 
-module.exports = app;
+var tracker = require("./tracker_api");
+app.use("/tracker", tracker);
 
+module.exports = app;

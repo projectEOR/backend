@@ -1,9 +1,6 @@
 const request = require("supertest");
 const app = require("../src/app");
 
-
-
-
 describe("Test the reports path", () => {
     test("It should response the GET method", done => {
         request(app)
