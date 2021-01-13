@@ -22,7 +22,19 @@ const getOrgChildren = (req,res) => {
 
 }
 
+const getSeniorRater = (req,res) => {
+    let org_id = req.params.org_id
+    pool.query("SELECT * FROM senior_raters WHERE org_id=$1;", [org_id], (err, result) => {
+        if(err){
+            throw err;
+        }
+        res.status(200).send(result.rows);
+    })
+
+}
+
 module.exports = {
     getOverview,
-    getOrgChildren
+    getOrgChildren,
+    getSeniorRater
 }
