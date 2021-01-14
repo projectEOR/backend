@@ -158,12 +158,31 @@ INSERT INTO orgs (name, parentid, address) VALUES
 INSERT INTO Users (email, last_name, first_name, rank_id, org_id, rater_id, additional_rater_id, closeout) 
 VALUES
 ('john.smith@spaceforce.mil', 'Smith', 'John', 10, 1, 1, 1, '2022-01-01'),
-('jane.doe@spaceforce.mil', 'Doe', 'Jane', 8, 1, 1, 1, '2021-10-01'),
-('chris.jenkins@spaceforce.mil', 'Jenkins', 'Chris', 6, 1, 2, 1, '2021-08-01'),
-('sarah.johnson@spaceforce.mil', 'Johnson', 'Sarah', 4, 1, 3, 2, '2021-06-01'),
-('james.franklin@spaceforce.mil', 'James', 'Franklin', 2, 1, 4, 3, '2021-04-01'),
-('crystal.wilkes@spaceforce.mil', 'Crystal', 'Wilkes', 1, 1, 4, 3, '2021-02-01');
-
+('jane.doe@spaceforce.mil', 'Doe', 'Jane', 9, 1, 1, 1, '2021-10-01'),
+('chris.jenkins@spaceforce.mil', 'Jenkins', 'Chris', 9, 1, 1, 1, '2021-08-01'),
+('sarah.johnson@spaceforce.mil', 'Johnson', 'Sarah', 8, 1, 2, 2, '2021-06-01'),
+('james.franklin@spaceforce.mil', 'James', 'Franklin', 8, 1, 3, 3, '2021-04-01'),
+('crystal.wilkes@spaceforce.mil', 'Crystal', 'Wilkes', 7, 1, 4, 3, '2021-02-01'),
+('lkiddy0@spaceforce.mil', 'Kiddy', 'Lynett', 7, 1, 4, 10, '2021-06-12'),
+('cnorssister1@spaceforce.mil', 'Norssister', 'Chandler', 7, 1, 5, 2, '2021-12-03'),
+('dprosh2@spaceforce.mil', 'Prosh', 'Dugald', 6, 1, 6, 7, '2021-10-31'),
+('grow3@spaceforce.mil', 'Row', 'Gabriellia', 6, 1, 6, 9, '2021-03-23'),
+('dwotton4@spaceforce.mil', 'Wotton', 'Danita', 6, 1, 7, 10, '2021-02-02'),
+('nsparke5@spaceforce.mil', 'Sparke', 'Nikolas', 6, 1, 7, 1, '2021-09-21'),
+('cadlington6@spaceforce.mil', 'Adlington', 'Caritta', 5, 1, 9, 9, '2021-02-05'),
+('jbinder7@spaceforce.mil', 'Binder', 'Josephine', 5, 1, 10, 5, '2021-12-04'),
+('jparrington8@spaceforce.mil', 'Parrington', 'Justis', 4, 1, 13, 9, '2021-12-06'),
+('tmorshead9@spaceforce.mil', 'Morshead', 'Town', 4, 1, 14, 1, '2021-04-05'),
+('kseaka@spaceforce.mil', 'Seak', 'Kathy', 3, 1, 15, 3, '2021-11-20'),
+('ltackleyb@spaceforce.mil', 'Tackley', 'Lem', 3, 1, 16, 8, '2021-08-26'),
+('gwykesc@spaceforce.mil', 'Wykes', 'Glenine', 2, 1, 17, 4, '2021-03-27'),
+('enellesd@spaceforce.mil', 'Nelles', 'Edwin', 2, 1, 17, 10, '2021-02-28'),
+('khendrene@spaceforce.mil', 'Hendren', 'Karissa', 2, 1, 18, 4, '2021-06-16'),
+('mmcindrewf@spaceforce.mil', 'McIndrew', 'Myrlene', 1, 1, 17, 3, '2021-10-13'),
+('mmaragesg@spaceforce.mil', 'Marages', 'Melitta', 1, 1, 17, 2, '2021-04-14'),
+('mandrellih@spaceforce.mil', 'Andrelli', 'Margette', 1, 1, 18, 9, '2021-08-31'),
+('amulcocki@spaceforce.mil', 'Mulcock', 'Allie', 1, 1, 17, 9, '2021-11-05'),
+('jlidgelyj@spaceforce.mil', 'Lidgely', 'Johan', 1, 1, 18, 4, '2021-05-03');
 
 INSERT INTO reports (user_id, pr_type)
 VALUES (1,1),(2,1),(3,1);
